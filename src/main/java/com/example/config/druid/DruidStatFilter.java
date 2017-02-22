@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.config.druid;
 
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;

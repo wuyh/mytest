@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.config.shiro;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
