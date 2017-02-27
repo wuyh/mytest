@@ -19,7 +19,7 @@ public class UserInfo implements Serializable{
 
 	@Id
 	@GeneratedValue
-	private long uId;
+	private long uid;
 	
 	@Column(unique=true)
 	private String userName;
@@ -33,15 +33,15 @@ public class UserInfo implements Serializable{
 	private byte state;//用户状态,0:创建未认证（比如没有激活，没有输入验证码等等）--等待验证的用户 , 1:正常状态,2：用户被锁定.
 	
 	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="uId")},inverseJoinColumns={@JoinColumn(name="roleId")})
+	@JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="uid")},inverseJoinColumns={@JoinColumn(name="roleId")})
 	private List<SysRole> roleList;
-	
-	public long getuId() {
-		return uId;
+
+	public long getUid() {
+		return uid;
 	}
 
-	public void setuId(long uId) {
-		this.uId = uId;
+	public void setUid(long uid) {
+		this.uid = uid;
 	}
 
 	public String getUserName() {
@@ -98,7 +98,7 @@ public class UserInfo implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "UserInfo [uId="+uId+",userName=" + userName + ", name=" + name + ", password=" + password
+		return "UserInfo [uId="+uid+",userName=" + userName + ", name=" + name + ", password=" + password
               + ", salt=" + salt + ", state=" + state + "]";
 	}
 	

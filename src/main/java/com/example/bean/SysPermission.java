@@ -12,7 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class SysRolePermission implements Serializable{
+public class SysPermission implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	

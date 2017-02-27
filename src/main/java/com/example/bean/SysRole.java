@@ -29,7 +29,7 @@ public class SysRole implements Serializable{
 	//角色－权限关系；多对对关系
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="SysRolePermission",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="permissionId")})
-	private List<SysRolePermission> permissions;
+	private List<SysPermission> permissions;
 	
 	// 用户 - 角色关系定义;
 	@ManyToMany
@@ -68,11 +68,11 @@ public class SysRole implements Serializable{
 		this.available = available;
 	}
 
-	public List<SysRolePermission> getPermissions() {
+	public List<SysPermission> getPermissions() {
 		return permissions;
 	}
 
-	public void setPermissions(List<SysRolePermission> permissions) {
+	public void setPermissions(List<SysPermission> permissions) {
 		this.permissions = permissions;
 	}
 

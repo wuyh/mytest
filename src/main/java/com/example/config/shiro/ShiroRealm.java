@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.example.bean.SysRole;
-import com.example.bean.SysRolePermission;
+import com.example.bean.SysPermission;
 import com.example.bean.UserInfo;
 import com.example.service.UserInfoService;
 
@@ -40,7 +40,7 @@ public class ShiroRealm extends AuthorizingRealm {
 		
 		//获取用户输入的账号
 		String userName = (String) token.getPrincipal();
-		logger.info((String) token.getCredentials());
+		System.out.println(token.getCredentials());
 		
 		//通过username从数据库中查找 User对象，如果找到，没找到.
 	    //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
@@ -92,7 +92,7 @@ public class ShiroRealm extends AuthorizingRealm {
 	    UserInfo userInfo  = (UserInfo)principals.getPrimaryPrincipal();
 	    for(SysRole role:userInfo.getRoleList()){
 	           authorizationInfo.addRole(role.getRole());
-	           for(SysRolePermission p:role.getPermissions()){
+	           for(SysPermission p:role.getPermissions()){
 	              authorizationInfo.addStringPermission(p.getPermission());
 	           }
 	       }
