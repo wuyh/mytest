@@ -1,6 +1,6 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-title">后台管理系统</div>
+        <div class="ms-title">嗖嗖管理平台</div>
         <div class="ms-login">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
                 <el-form-item prop="username">
@@ -43,12 +43,13 @@
                 const self = this;
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
-                        this.$http.post(this.apiUrl,{username:self.ruleForm.username,password1:self.ruleForm.password})
+                        this.$http.post(this.apiUrl,{username:self.ruleForm.username,password:self.ruleForm.password},{emulateJSON:true})
                               .then((response)=>{
-                                console.log(response);
+                                if(response.status==200){
+                                  localStorage.setItem('ms_username',self.ruleForm.username);
+                                  self.$router.push('/readme');
+                                }
                               })
-                        localStorage.setItem('ms_username',self.ruleForm.username);
-                        self.$router.push('/readme');
                     } else {
                         console.log('error submit!!');
                         return false;

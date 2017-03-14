@@ -8,6 +8,7 @@ import vueResource from 'vue-resource';
 
 Vue.use(ElementUI);
 Vue.use(vueResource);
+// Vue.http.options.emulateJSON=true;
 new Vue({
     router,
     render: h => h(App)

@@ -1,6 +1,9 @@
 <template>
     <div class="header">
-        <div class="logo">后台管理系统</div>
+        <div class="logo">
+          <img class="ssicon" src='../../../static/img/sousouicon.png'/>
+          嗖嗖管理平台
+        </div>
         <div class="user-info">
             <el-dropdown trigger="click" @command="handleCommand">
                 <span class="el-dropdown-link">
@@ -31,6 +34,7 @@
         methods:{
             handleCommand(command) {
                 if(command == 'loginout'){
+
                     localStorage.removeItem('ms_username')
                     this.$router.push('/login');
                 }
@@ -52,6 +56,14 @@
         float: left;
         width:250px;
         text-align: center;
+    }
+    .logo .ssicon {
+        position: absolute;
+        top:10px;
+        left:25px;
+        height:32px;
+        width:32px;
+        margin-top: 8px;
     }
     .user-info {
         float: right;
